@@ -1,4 +1,5 @@
 import Card from './Card';
+import { Link as RouterLink } from 'react-router-dom';
 
 const HomeCards = () => {
   return (
@@ -10,24 +11,24 @@ const HomeCards = () => {
             <p className="mt-2 mb-4">
               Browse our React jobs and start your career today
             </p>
-            <a
+            <RouterLink
               href="/jobs.html"
               className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-teal-800"
             >
               Browse Jobs
-            </a>
+            </RouterLink>
           </Card>
           <Card bg="bg-teal-200">
             <h2 className="text-2xl font-bold">For Employers</h2>
             <p className="mt-2 mb-4">
               List your job to find the perfect developer for the role
             </p>
-            <a
+            <RouterLink
               href="/add-job.html"
               className="inline-block bg-teal-800 text-white rounded-lg px-4 py-2  hover:bg-black"
             >
               Add Job
-            </a>
+            </RouterLink>
           </Card>
         </div>
       </div>
