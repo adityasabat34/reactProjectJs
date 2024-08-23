@@ -8,6 +8,7 @@ import MainLayouts from './layouts/MainLayouts';
 import Homepages from './screens/Homepages';
 import JobsScreen from './screens/JobsScreen';
 import NotFoundScreen from './screens/NotFoundScreen';
+import JobScreen from './screens/JobScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
       <Route index element={<Homepages />} />
       <Route path="/jobs" element={<JobsScreen />} />
       <Route path="*" element={<NotFoundScreen />} />
+      <Route path="/jobs/:id" element={<JobScreen />} />
     </Route>
   )
 );

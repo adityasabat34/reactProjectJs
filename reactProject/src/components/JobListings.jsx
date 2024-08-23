@@ -6,22 +6,47 @@ import PropTypes from 'prop-types';
 const JobListings = ({ isHomeScreen = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchJobs = async () => {
       const apiDataURL = isHomeScreen ? '/api/jobs?_limit=3' : '/api/jobs';
       try {
         const res = await fetch(apiDataURL);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
         const data = await res.json();
         setJobs(data);
       } catch (error) {
         console.log('Error fetching data', error);
+        setError('');
       } finally {
         setLoading(false);
       }
     };
     fetchJobs();
   }, []);
+
+  if (loading) {
+    return (
+      <section className="bg-teal-200 px-4 py-10">
+        <div className="container-xl lg:container m-auto">
+          <Loader />
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="bg-teal-200 px-4 py-10">
+        <div className="container-xl lg:container m-auto">
+          <p className="text-red-700 text-center"> {error}</p>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="bg-teal-100 px-4 py-10 ">
       <div className="container-xl lg:container m-auto">
