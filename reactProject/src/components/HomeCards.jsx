@@ -12,7 +12,7 @@ const HomeCards = () => {
               Browse our React jobs and start your career today
             </p>
             <RouterLink
-              href="/jobs.html"
+              to="/jobs"
               className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-teal-800"
             >
               Browse Jobs
@@ -24,7 +24,7 @@ const HomeCards = () => {
               List your job to find the perfect developer for the role
             </p>
             <RouterLink
-              href="/add-job.html"
+              to="/add-job"
               className="inline-block bg-teal-800 text-white rounded-lg px-4 py-2  hover:bg-black"
             >
               Add Job
